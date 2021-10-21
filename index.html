@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive KFC landing page </title>
+    <!-- Render All Element Normally -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Font Awsome Libary -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <!-- Main Template Css File -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Link To Custom Js -->
+    <scrip src="main.js"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+</head>
+<body>
+    <section class="main" >
+        <header>
+            <a href="#">
+                <img src="img/logo.png" class="logo" alt="logo">
+            </a>
+            <div class="toggle" onclick="toggleMenu() "></div>
+            <ul class="navigation">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#last product">Last Product</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </header>
+        <div class="content">
+            <div class="text">
+                <h2>I'ts Finger<br>Lickin <span>Good.</span></h2>
+                <p>KFC is a global chicken restaurant brand with a rich, decades-long history of success and innovation. It all started with one cook, Colonel Harland Sanders, who created a finger lickin’ good recipe more than 
+                    75 years ago—a list of 11 secret herbs and spices scratched out on the back of his kitchen door. Today, we still follow his formula for success.</p>
+                    <a href="#" class="btn">Learn More</a>
+            </div>
+            <div class="slider">
+                <div class="slides active">
+                    <img src="img/1.png">
+                </div>
+                <div class="slides">
+                    <img src="img/2.png">
+                </div>
+                <div class="slides">
+                    <img src="img/3.png">
+                </div>
+                
+            </div>
+        </div>
+        <div class="footer">
+            <ul class="social">
+                <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+            </ul>
+            <div class="prev-next">
+                <p>Always Fresch</p>
+                <span class="prev"><i class="fas fa-chevron-left"></i></span>
+                <span class="next"><i class="fas fa-chevron-right"></i></span>
+            </div>
+        </div>
+        <script>
+            const slides = document.querySelectorAll('.slides');
+            const prev = document.querySelector('.prev');
+            const next = document.querySelector('.next');
+            
+            i = 0;
+
+            function ActiveSlide(n) {
+                for( slide of slides )
+                slide.classList.remove('active');
+                slides[n].classList.add('active');
+            }
+               // fonction for prev btn 
+                prev.addEventListener('click', function() {
+                if(i == slides.length - 1) {
+                    i = 0;
+                    ActiveSlide(i);
+                }
+                else {
+                    i++;
+                    ActiveSlide(i);
+                }
+            })
+            next.addEventListener('click', function() {
+                if(i == 0 ) {
+                    i =  slides.length - 1;
+                    ActiveSlide(i);
+                }
+                else {
+                    i--;
+                    ActiveSlide(i);
+                }
+            })
+            function toggleMenu() {
+            const menuToggle = document.querySelector('.toggle');
+            const navigation = document.querySelector('.navigation')
+            menuToggle.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+        </script>
+    </section>
+</body>
+</html>
